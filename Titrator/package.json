@@ -1,0 +1,30 @@
+{
+    "name": "esp32-poids-affichage",
+    "version": "1.0.0",
+    "description": "Application web avec ESP32 pour afficher le poids et envoyer des messages à l'écran LCD.",
+    "main": "server/server.js",
+    "scripts": {
+        "start": "node server/server.js"
+    },
+    "keywords": [
+        "ESP32",
+        "Node.js",
+        "Poids",
+        "Affichage",
+        "LCD",
+        "HX711"
+    ],
+    "author": "Votre Nom",
+    "license": "ISC",
+    "dependencies": {
+        "async-mutex": "^0.5.0",
+        "axios": "^1.7.9",
+        "chart.js": "^4.4.7",
+        "express": "^4.21.2",
+        "os": "^0.1.2",
+        "path": "^0.12.7"
+    },
+    "engines": {
+        "node": ">=14.0.0"
+    }
+}

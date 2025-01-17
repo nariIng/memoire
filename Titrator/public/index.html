@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Titrateur Chimique Automatique</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="icons/font/bootstrap-icons.min.css">
+</head>
+<body>
+  <div class="content container my-5 py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <img src="images/logo-ecole.png" alt="Logo Ecole" class="img-fluid" style="height: 80px;">
+      <h1 class="text-center text-primary mb-0">Titrateur Chimique Automatique</h1>
+      <img src="images/logo-departement.png" alt="Logo Département" class="img-fluid" style="height: 80px;">
+    </div>
+
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary fixed-top shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html">Titrateur Chimique</a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="parametre.html">Paramètres</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Aide</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="card mb-4 shadow-lg">
+      <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <h2 class="mb-0">Entrées de Titration</h2>
+        <button type="button" onclick="end_titre()" class="btn badge bg-light text-primary">Stop Titration</button>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <!-- Partie gauche : Formulaire d'entrée -->
+          <div class="col-lg-6 mb-3">
+            <form id="titration-form">
+          <div class="mb-4">
+            <label for="titrant-name" class="form-label">Nom de la solution titrante</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-droplet-half"></i></span>
+              <input type="text" class="form-control" id="titrant-name" placeholder="Entrez le nom de la solution titrante" required>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label for="titrand-name" class="form-label">Nom de la solution à titrer</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-droplet-half"></i></span>
+              <input type="text" class="form-control" id="titrand-name" placeholder="Entrez le nom de la solution à titrer" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <label for="titrant-volume" class="form-label">Volume de la solution titrante (mL)</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-water"></i></span>
+                <input type="number" class="form-control" id="titrant-volume" step="1" placeholder="Volume en mL" required>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <label for="titrand-volume" class="form-label">Volume de la solution à titrer (mL)</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-water"></i></span>
+                <input type="number" class="form-control" id="titrand-volume" step="1" placeholder="Volume en mL" required>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label for="titrand-name" class="form-label">Concentration du titrant</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-droplet-half"></i></span>
+              <input type="number" class="form-control" id="titrand-concentration" placeholder="Concentrqtion en g/mol" required>
+            </div>
+          </div>
+          <div class="d-grid">
+            <button type="button" onclick="sendMessage(event)" class="btn btn-primary btn-lg">Titrer</button>
+          </div>
+            </form>
+          </div>
+
+      <!-- Partie droite : Affichage des valeurs -->
+      <div class="col-lg-6">
+        <div class="card shadow-sm p-4" style="background: linear-gradient(to right, #007bff, #001f3f); color: white;">
+          <h4 class="text-center mb-4">Valeurs Saisies</h4>
+          <div class="value-display">
+            <p><strong>Solution Titrante :</strong> <span id="display-titrant-name">-</span></p>
+            <p><strong>Solution à Titrer :</strong> <span id="display-titrand-name">-</span></p>
+            <p><strong>Volume Titrant :</strong> <span id="display-titrant-volume">0 mL</span></p>
+            <p><strong>Volume à Titrer :</strong> <span id="display-titrand-volume">0 mL</span></p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-4 mb-3">
+        <div class="card border-0 shadow-lg text-white text-center" style="background: linear-gradient(to right, #007bff, #001f3f);">
+          <div class="card-body">
+            <h3>pH</h3>
+            <span id="real-time-ph" class="display-4 badge bg-secondary">...</span>
+            <span class="display-4">pH</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card border-0 shadow-lg text-white text-center" style="background: linear-gradient(to right, #007bff, #001f3f);">
+          <div class="card-body">
+            <h3>Titrant</h3>
+            <span id="real-time-pound-1" class="display-4 badge bg-secondary">...</span>
+            <span class="display-4">g</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-lg text-white text-center" style="background: linear-gradient(to right, #007bff, #001f3f);">
+          <div class="card-body">
+            <h3>Titrand</h3>
+            <span id="real-time-pound-2" class="display-4 badge bg-secondary">...</span>
+            <span class="display-4">g</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-mb-4">
+        <div class="card-body">
+          <div class="d-flex flex-wrap justify-content-around">
+            <button class="btn btn-outline-primary btn-lg m-2" onclick="tarBalance1()">Tarer Balance 1</button>
+            <button class="btn btn-outline-primary btn-lg m-2" onclick="tarBalance2()">Tarer Balance 2</button>
+            <button class="btn btn-outline-success btn-lg m-2" onclick="calibPH()">Calibrer pH-mètre</button>
+            <button class="btn btn-outline-danger btn-lg m-2" onclick="cleanPompe()">Nettoyer la Pompe</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="card border-0 shadow-lg text-white text-center" style="background: linear-gradient(to right, #007bff, #001f3f);">
+          <div class="card-body">
+            <h3>Titrant</h3>
+            <span id="real-time-vol-1" class="display-4 badge bg-secondary">...</span>
+            <span class="display-4">ml</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="card border-0 shadow-lg text-white text-center" style="background: linear-gradient(to right, #007bff, #001f3f);">
+          <div class="card-body">
+            <h3>Titrand</h3>
+            <span id="real-time-vol-2" class="display-4 badge bg-secondary">...</span>
+            <span class="display-4">ml</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <div class="card border-0 shadow-lg">
+          <div class="card-header text-white" style="background: linear-gradient(to right, #007bff, #001f3f);">
+            <h2 class="mb-0">Courbe de Titration</h2>
+          </div>
+          <div class="card-body text-center">
+            <canvas id="titration-curve"width="400" height="200"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 mb-4">
+        <div class="card border-0 shadow-lg">
+          <div class="card-header text-white" style="background: linear-gradient(to right, #26a965df, #013018);">
+            <h2 class="mb-0">Dérivée de la Courbe</h2>
+          </div>
+          <div class="card-body text-center">
+            <canvas id="derivative-curve" width="400" height="200"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card mb-4">
+      <div class="card-header bg-info text-white text-center">
+        <h2>Résultats</h2>
+      </div>
+      <div class="card-body">
+        <div class="result-item mb-3">
+          <h4>Volume nécessaire à la titration:</h4>
+          <span id="required-volume" class="badge bg-success fs-4">0 mL</span>
+        </div>
+        <!-- Autres résultats peuvent être ajoutés ici -->
+      </div>
+    </div>
+  </div>
+  
+      <!-- Footer Stylisé -->
+    <footer class="footer bg-dark text-white text-center pt-3 mt-5 shadow-lg">
+      <p class="mb-0">
+        <small>
+          <i class="bi bi-file-earmark-text"></i> Mémoire d'Ingéniorat de <strong>Narindranjanahary Emmanuela</strong>
+        </small>
+      </p>
+      <p class="mb-0">
+        <small>© 2025 Tous droits réservés</small>
+      </p>
+    </footer>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="js/chart.min.js"></script>
+  <script src="js/parameter.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+html, body {
+  height: 100%;
+  background-color: #fff;
+  color: #506171;
+  
+}
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.content {
+  flex: 1;
+}
+h1 {
+  font-family: 'Courier New', Courier, monospace;
+  text-shadow: 2px 2px #ccc;
+}
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+.card-header {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+.card:hover {
+  transform: scale(1.02);
+}
+.card-body {
+  position: relative;
+}
+canvas {
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.text_curve{
+  color: #fff !important;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background: rgba(0, 123, 255, 0.1);
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.result-item h4 {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  color: #007bff;
+}
+.result-item span {
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  text-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.footer {
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
+.footer p {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+.footer small {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+#real-time-ph, #real-time-vol-1, #real-time-vol-2, #real-time-pound-1, #real-time-pound-2 {
+  padding: 20px 30px;
+  font-size: 2rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.3);
+}
+.card-body h3 {
+  margin-bottom: 20px;
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+.value-display {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  line-height: 2;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+.value-display p {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 0;
+}
+.value-display span {
+  color: #00ff7f;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 255, 127, 0.5);
+}
+/* Barre de navigation */
+.navbar {
+  background: linear-gradient(90deg, #4b79a1, #283e51);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.navbar-brand {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.navbar-nav .nav-link {
+  color: #fff;
+  font-weight: bold;
+  margin-right: 1rem;
+  transition: color 0.3s ease-in-out;
+}
+.navbar-nav .nav-link:hover {
+  color: #00ff7f;
+  text-shadow: 0 0 5px rgba(0, 255, 127, 0.5);
+}
+
+/* Slide nav */
+.offcanvas {
+  background: linear-gradient(90deg, #2c3e50, #34495e);
+}
+.offcanvas-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.25rem;
+}
+.offcanvas-body ul li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.971);
+}
+.offcanvas-body ul li a {
+  font-size: 1.1rem;
+  transition: color 0.3s ease-in-out;
+}
+.offcanvas-body ul li a:hover {
+  color: #00ff7f;
+}
+
+/* Transitions */
+.navbar-toggler-icon {
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.468));
+}
+.btn-close-white {
+  filter: brightness(0) invert(1);
+}
+/*trasi page*/
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.fade-out {
+  animation: fadeOut 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+} */
+
+body {
+  transition: opacity 0.5s ease-in-out;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+/*end trans page*/
+
+/*param*/
+.btn-lg {
+  width: 220px;
+  height: 60px;
+  font-size: 1.25rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-lg:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/*param end*/
+
+/*btn pour config speed*/
+
+  .form-control-lg {
+    font-size: 1.25rem;
+    padding: 10px;
+  }
+
+  .btn-lg {
+    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-lg:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .chartjs-render-monitor {
+    color: #ffffff !important;
+  }
+  
