@@ -22,6 +22,20 @@ Ce projet consiste en la conception et la réalisation d’un titrateur acide/ba
 - **HTML/CSS/JavaScript** : Interface utilisateur web
 - **Chart.js/D3.js** : Visualisation des résultats sous forme de courbes
 
+## 🧰 Liste des Composants et Matériels Utilisés
+
+### 🔌 Microcontrôleurs et Cartes Électroniques
+- **ESP32** - [Image](./Titrator/images/esp32.png)
+- **Arduino Nano** - [Image](./Titrator/images/arduino_nano.png)
+- **Raspberry Pi 3B** - [Image](./Titrator/images/raspberry_pi_3b.png)
+
+### 📡 Capteurs et Actionneurs
+- **Capteur pH** - [Image](./Titrator/images/capteur_ph.png)
+- **Capteur de poids (HX711 + cellule de charge)** - [Image](./Titrator/images/capteur_poids.png)
+- **Pompe péristaltique** - [Image](./Titrator/images/electrovanne.png)
+- **Moteurs pour l'agitation et la distribution des réactifs** - [Image](./Titrator/images/moteurs.png)
+
+
 ## 📸 Branchement des composants
 ![Schéma de l'installation](./Titrator/images/branchement.png)
 
@@ -93,7 +107,6 @@ Le mémoire détaillant la conception et la mise en œuvre de ce projet est disp
 Développé par **NARINDRANJANAHARY Emmanuela** dans le cadre de son mémoire de Master à titre ingénieure en Génie des Procédés Chimiques et Industriels. Contributions bienvenues !
 
 ## 📩 Contact
-
 📌 **GitHub** : [github.com/nariIng](https://github.com/nariIng/)  
 📌 **LinkedIn** : [linkedin.com/in/emmanuela-narindranjanahary-7194272a7](www.linkedin.com/in/emmanuela-narindranjanahary-7194272a7)
 
