@@ -21,10 +21,12 @@ Ce projet consiste en la conception et la réalisation d’un titrateur acide/ba
 - **HTML/CSS/JavaScript** : Interface utilisateur web
 - **Chart.js/D3.js** : Visualisation des résultats sous forme de courbes
 
-## 📸 Aperçu du Projet
-![Schéma du dispositif](path_to_your_image)
-![Prototype du dispositif](path_to_your_image)
-![Interface web](path_to_your_image)
+## 📸 Branchement des composants
+![Schéma de l'installation](./Titrator/images/branchement.png)
+
+## 📸 Interface web
+![Interface web](./Titrator/images/interface.png)
+![Interface web](./Titrator/images/interface_2.png)
 
 ## 📌 Installation & Configuration
 
@@ -55,14 +57,19 @@ node server.js
 ```
 
 ## 📊 Interface & Visualisation
-![Exemple de courbe](path_to_your_image)
+![Exemple de courbe](./Titrator/images/courbe1_1.png)
+![Exemple de courbe](./Titrator/images/courbe1_2.png)
+![Exemple de courbe](./Titrator/images/courbe1_3.png)
+![Exemple de courbe](./Titrator/images/courbe2_1.png)
+![Exemple de courbe](./Titrator/images/courbe2_2.png)
+![Exemple de courbe](./Titrator/images/courbe2_3.png)
 
 L’interface affiche en temps réel les variations de pH et de volume, avec des courbes de titration interactives. L’utilisateur peut suivre l’évolution de la réaction et analyser les résultats via des graphiques dynamiques.
 
 ## 📈 Fonctionnalités
 ✅ Automatisation complète du processus de titration  
-✅ ESP32 gère l'activation des moteurs  
-✅ Arduino Nano commande les capteurs via I2C  
+✅ ESP32 gère l'activation des moteurs et maître de l'arduino nano 
+✅ Arduino Nano commande les capteurs et est esclave de l'esp32 via I2C  
 ✅ Interface web intuitive pour le contrôle et le suivi  
 ✅ Stockage et affichage des résultats sous forme de graphiques  
 ✅ Connectivité WiFi pour un accès à distance  
@@ -71,7 +78,7 @@ L’interface affiche en temps réel les variations de pH et de volume, avec des
 
 ## 📥 Télécharger le Mémoire
 Le mémoire détaillant la conception et la mise en œuvre de ce projet est disponible en téléchargement :
-[📄 Télécharger le mémoire PDF](path_to_your_pdf)
+[📄 Télécharger le mémoire PDF](./Titrator/project_pdf_file)
 
 ## 🔗 Liens Utiles
 - [Documentation ESP32](https://docs.espressif.com/projects/esp-idf/en/latest/)
@@ -79,7 +86,12 @@ Le mémoire détaillant la conception et la mise en œuvre de ce projet est disp
 - [Node.js](https://nodejs.org/)
 
 ## ✨ Auteur & Contributions
-Développé par **NARINDRANJANAHARY Emmanuela** dans le cadre de son mémoire de Master en Génie des Procédés Chimiques et Industriels. Contributions bienvenues !
+Développé par **NARINDRANJANAHARY Emmanuela** dans le cadre de son mémoire de Master à titre ingénieure en Génie des Procédés Chimiques et Industriels. Contributions bienvenues !
+
+## 📩 Contact
+
+📌 **GitHub** : [github.com/nariIng](https://github.com/nariIng/)  
+📌 **LinkedIn** : [linkedin.com/in/emmanuela-narindranjanahary-7194272a7](www.linkedin.com/in/emmanuela-narindranjanahary-7194272a7)
 
 ## 📜 Licence
 Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
