@@ -1,7 +1,7 @@
 # memoire
 # 🔬 Titrateur Acide/Base Automatisé avec Arduino Nano & ESP32
 
-![Project Banner](path_to_your_image)
+![Project Banner](./Titrator/images/illustration.png)
 
 ## 🚀 Présentation du Projet
 Ce projet consiste en la conception et la réalisation d’un titrateur acide/base automatisé basé sur Arduino Nano et ESP32. Il vise à améliorer la précision et l'efficacité des titrations chimiques en automatisant le processus et en fournissant une interface utilisateur intuitive accessible via une plateforme web.
