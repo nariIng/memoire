@@ -60,7 +60,7 @@ void loop() {
     Wire.requestFrom(NANO_ADDRESS, sizeof(buffer));
     if (Wire.available()) {
       size_t len = Wire.readBytesUntil('\0', buffer, sizeof(buffer));
-      buffer[len] = '\0';  // Assurez-vous que la chaîne est bien terminée
+      buffer[len] = '\0'; 
       sscanf(buffer, "%f,%f,%f", &poids1, &poids2, &pH);
       Serial.print("poids_1 : ");
       Serial.println(poids1);
