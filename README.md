@@ -25,15 +25,22 @@ Ce projet consiste en la conception et la réalisation d’un titrateur acide/ba
 ## 🧰 Liste des Composants et Matériels Utilisés
 
 ### 🔌 Microcontrôleurs et Cartes Électroniques
-- **ESP32** - [Image](./Titrator/images/esp32.jpg)
-- **Arduino Nano** - [Image](./Titrator/images/arduino_nano.png)
-- **Raspberry Pi 3B** - [Image](./Titrator/images/raspberry_pi_3b.png)
+- **ESP32** -
+![Image](./Titrator/images/esp32.jpg)
+- **Arduino Nano** -
+![Image](./Titrator/images/arduino_nano.webp)
+- **Raspberry Pi 3B** -
+![Image](./Titrator/images/rasp.jpeg)
 
 ### 📡 Capteurs et Actionneurs
-- **Capteur pH** - [Image](./Titrator/images/capteur_pH.jpg)
-- **Capteur de poids (HX711 + cellule de charge)** - [Image](./Titrator/images/charge.jpg)
-- **Pompe péristaltique** - [Image](./Titrator/images/pompe.png)
-- **Moteurs pour l'agitation et la distribution des réactifs** - [Image](./Titrator/images/moteur.png)
+- **Capteur pH** -
+![Image](./Titrator/images/capteur_pH.jpg)
+- **Capteur de poids (HX711 + cellule de charge)** -
+![Image](./Titrator/images/charge.jpg)
+- **Pompe péristaltique** -
+![Image](./Titrator/images/pompe.png)
+- **Moteurs pour l'agitation et la distribution des réactifs** -
+![Image](./Titrator/images/moteur.png)
 
 
 ## 📸 Branchement des composants
