@@ -95,7 +95,7 @@ L’interface affiche en temps réel les variations de pH et de volume, avec des
 
 ## 📥 Télécharger le Mémoire
 Le mémoire détaillant la conception et la mise en œuvre de ce projet est disponible en téléchargement :
-[📄 Télécharger le mémoire PDF](./Titrator/project_pdf_file/project_pdf_file.pdf)
+[📄 Télécharger le mémoire PDF](./Titrator/project_pdf_file/project_pdf_file.pdf){:download}
 
 ## 🔗 Liens Utiles
 - [Documentation ESP32](https://docs.espressif.com/projects/esp-idf/en/latest/)
