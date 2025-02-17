@@ -38,8 +38,8 @@ Ce projet consiste en la conception et la réalisation d’un titrateur acide/ba
 
 ### 2️⃣ Cloner le dépôt
 ```bash
-git clone https://github.com/votre-repo.git
-cd votre-repo
+git clone git@github.com:nariIng/memoire.git
+cd memoire/Titrator
 ```
 
 ### 3️⃣ Installer les dépendances
@@ -48,12 +48,12 @@ npm install
 ```
 
 ### 4️⃣ Flasher l’ESP32 et l’Arduino Nano
-- Configurer le fichier `.ino` pour l'ESP32 et le téléverser via Arduino IDE.
-- Configurer le fichier `.ino` pour l'Arduino Nano et le téléverser via Arduino IDE.
+- Configurer le fichier `esp32_maitre.ino` pour l'ESP32 et le téléverser via Arduino IDE.
+- Configurer le fichier `nano_esclave.ino` pour l'Arduino Nano et le téléverser via Arduino IDE.
 
 ### 5️⃣ Lancer le serveur
 ```bash
-node server.js
+npm start
 ```
 
 ## 📊 Interface & Visualisation
@@ -78,7 +78,7 @@ L’interface affiche en temps réel les variations de pH et de volume, avec des
 
 ## 📥 Télécharger le Mémoire
 Le mémoire détaillant la conception et la mise en œuvre de ce projet est disponible en téléchargement :
-[📄 Télécharger le mémoire PDF](./Titrator/project_pdf_file)
+[📄 Télécharger le mémoire PDF](./Titrator/project_pdf_file/project_pdf_file.pdf)
 
 ## 🔗 Liens Utiles
 - [Documentation ESP32](https://docs.espressif.com/projects/esp-idf/en/latest/)
