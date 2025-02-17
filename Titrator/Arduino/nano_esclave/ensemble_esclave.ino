@@ -16,6 +16,7 @@ float poids1 = 0, poids2 = 0, ph_act = 0;
 float calfactor_1, calfactor_2;
 
 void setup() {
+  Serial.begin(57600);
   Wire.begin(I2C_ADDRESS);
   Wire.onRequest(requestEvent);
   Wire.onReceive(receiveEvent);
@@ -25,7 +26,6 @@ void setup() {
 void loop() {
   pounds();
   ph_value();
-  delay(500);
 }
 
 void requestEvent() {
@@ -70,21 +70,24 @@ void start_loadCell() {
   EEPROM.get(4, calfactor_2);
   LoadCell1.setCalFactor(calfactor_1);
   LoadCell2.setCalFactor(calfactor_2);
+  delay(1000);
+  tare1();
+  tare2();
 }
 
 void ph_value() {
-  int buffer_arr[10];
+  int buffer_arr[30];
   unsigned long int avgval = 0;
 
   // Lire les valeurs analogiques
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 30; i++) {
     buffer_arr[i] = analogRead(A0);
-    delay(30);
+//   delay(30);
   }
 
   // Tri à bulles
-  for (int i = 0; i < 9; i++) {
-    for (int j = 0; j < 9 - i; j++) {
+  for (int i = 0; i < 29; i++) {
+    for (int j = 0; j < 29 - i; j++) {
       if (buffer_arr[j] > buffer_arr[j + 1]) {
         int temp = buffer_arr[j];
         buffer_arr[j] = buffer_arr[j + 1];
@@ -94,11 +97,11 @@ void ph_value() {
   }
 
   // Calcul de la moyenne des valeurs médianes
-  for (int i = 2; i < 8; i++) {
+  for (int i = 10; i < 21; i++) {
     avgval += buffer_arr[i];
   }
   
-  float volt = (float)avgval * 5.0 / 1024 / 6;
+  float volt = (float)avgval * 5.0 / 1024 / 12;
   ph_act = 2.88 * volt - 0.31;
   if (ph_act <= 0){
     ph_act = 0;
@@ -109,14 +112,51 @@ void ph_value() {
 }
 
 
+float estab_pound(int a){
+  float buffer_arr[30];
+  float avgval = 0;
+
+  if (a == 1){
+    for (int i = 0; i < 30; i++) {
+      LoadCell1.update();
+      buffer_arr[i] = LoadCell1.getData();
+    }
+  }
+  else if (a == 2){
+    for (int i = 0; i < 30; i++) {
+      LoadCell2.update();
+      buffer_arr[i] = LoadCell2.getData();
+    }
+  }
+
+  // Tri à bulles
+  for (int i = 0; i < 29; i++) {
+    for (int j = 0; j < 29 - i; j++) {
+      if (buffer_arr[j] > buffer_arr[j + 1]) {
+        float temp = buffer_arr[j];
+        buffer_arr[j] = buffer_arr[j + 1];
+        buffer_arr[j + 1] = temp;
+      }
+    }
+  }
+
+  // Calcul de la moyenne des valeurs médianes
+  for (int i = 0; i < 30; i++) {
+    avgval += buffer_arr[i];
+  }
+  return (avgval/30);
+}
+
 void pounds() {
-  LoadCell1.update();
-  LoadCell2.update();
-  poids1 = LoadCell1.getData();
+  poids1 = estab_pound(1);
+  Serial.print("poids1  :");
+  Serial.println(poids1);
   if (poids1 <= 0){
    poids1 = 0;
   }
-  poids2 = LoadCell2.getData();
+  poids2 = estab_pound(2);
+  Serial.print("poids2  :");
+  Serial.println(poids2);
   if (poids2 <= 0){
    poids2 = 0;
   }
