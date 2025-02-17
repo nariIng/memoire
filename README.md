@@ -1,18 +1,19 @@
-# memoire
-# 🔬 Titrateur Acide/Base Automatisé avec Arduino Nano & ESP32
+# 🔬 Titrateur Acide/Base Automatisé avec Arduino Nano, ESP32 & Raspberry Pi 3B
 
 ![Project Banner](./Titrator/images/illustration.png)
 
 ## 🚀 Présentation du Projet
-Ce projet consiste en la conception et la réalisation d’un titrateur acide/base automatisé basé sur Arduino Nano et ESP32. Il vise à améliorer la précision et l'efficacité des titrations chimiques en automatisant le processus et en fournissant une interface utilisateur intuitive accessible via une plateforme web.
+Ce projet consiste en la conception et la réalisation d’un titrateur acide/base automatisé basé sur Arduino Nano, ESP32 et un Raspberry Pi 3B. Il vise à améliorer la précision et l'efficacité des titrations chimiques en automatisant le processus et en fournissant une interface utilisateur intuitive accessible via une plateforme web.
 
 ### 🎯 Objectifs du Projet
 - Développer un système de titration automatisé pour réduire l'erreur humaine.
 - Utiliser des capteurs pour mesurer avec précision le pH et la quantité de réactif ajouté.
 - Concevoir une interface web pour la gestion des expériences et l'affichage des résultats.
 - Permettre un suivi en temps réel des variations du pH et du volume de titrant ajouté.
+- Héberger le serveur web sur un Raspberry Pi 3B, qui agit comme commande maître et esclave pour l'ESP32 et l'Arduino Nano.
 
 ## 🛠️ Technologies Utilisées
+- **Raspberry Pi 3B** : Hébergement du serveur web et gestion centralisée du système
 - **ESP32** : Activation des moteurs
 - **Arduino Nano** : Gestion des capteurs pH et de poids
 - **Communication I2C** : L'Arduino Nano agit comme esclave de l'ESP32
@@ -31,10 +32,11 @@ Ce projet consiste en la conception et la réalisation d’un titrateur acide/ba
 ## 📌 Installation & Configuration
 
 ### 1️⃣ Prérequis
+- Raspberry Pi 3B avec Raspbian installé
 - Arduino IDE ou PlatformIO
 - ESP32 et Arduino Nano avec firmware compatible
 - Librairies Arduino : WiFi, Wire (I2C), HTTP, etc.
-- Node.js installé sur votre machine
+- Node.js et npm installés sur le Raspberry Pi
 
 ### 2️⃣ Cloner le dépôt
 ```bash
@@ -51,7 +53,7 @@ npm install
 - Configurer le fichier `esp32_maitre.ino` pour l'ESP32 et le téléverser via Arduino IDE.
 - Configurer le fichier `nano_esclave.ino` pour l'Arduino Nano et le téléverser via Arduino IDE.
 
-### 5️⃣ Lancer le serveur
+### 5️⃣ Lancer le serveur sur le Raspberry Pi
 ```bash
 npm start
 ```
@@ -68,8 +70,9 @@ L’interface affiche en temps réel les variations de pH et de volume, avec des
 
 ## 📈 Fonctionnalités
 ✅ Automatisation complète du processus de titration  
-✅ ESP32 gère l'activation des moteurs et maître de l'arduino nano 
-✅ Arduino Nano commande les capteurs et est esclave de l'esp32 via I2C  
+✅ Raspberry Pi 3B héberge le serveur et commande l’ESP32 et l’Arduino Nano  
+✅ ESP32 gère l'activation des moteurs et agit comme maître de l’Arduino Nano  
+✅ Arduino Nano commande les capteurs et est esclave de l'ESP32 via I2C  
 ✅ Interface web intuitive pour le contrôle et le suivi  
 ✅ Stockage et affichage des résultats sous forme de graphiques  
 ✅ Connectivité WiFi pour un accès à distance  
@@ -82,6 +85,7 @@ Le mémoire détaillant la conception et la mise en œuvre de ce projet est disp
 
 ## 🔗 Liens Utiles
 - [Documentation ESP32](https://docs.espressif.com/projects/esp-idf/en/latest/)
+- [Documentation Raspberry Pi](https://www.raspberrypi.org/documentation/)
 - [Chart.js](https://www.chartjs.org/)
 - [Node.js](https://nodejs.org/)
 
